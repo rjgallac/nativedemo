@@ -14,9 +14,11 @@ public class NativedemoApplication implements CommandLineRunner {
 	@Value("${postCode}")
 	private String postCode;
 
-	public static void main(String[] args) {
+	@Value("${postTown}")
+	private String postTown;
 
-//		SpringApplication.run(NativedemoApplication.class, args);
+
+	public static void main(String[] args) {
 		new SpringApplicationBuilder(NativedemoApplication.class)
 				.logStartupInfo(false)
 				.bannerMode(Banner.Mode.OFF)
@@ -29,7 +31,7 @@ public class NativedemoApplication implements CommandLineRunner {
 				.withBuildingNumber("12")
 				.withThroughfare("HIGH STREET NORTH")
 				.withDependentLocality("COOMBE BISSETT")
-				.withPostTown("SALISBURY")
+				.withPostTown(postTown)
 				.withPostcode(postCode)
 
 				.build();
